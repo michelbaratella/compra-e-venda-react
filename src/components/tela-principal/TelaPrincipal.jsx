@@ -14,6 +14,7 @@ const TelaPrincipal = () => {
 
   /* if there's a side menu opened and the user just clicked out of it, it should close */
   const handleOpenedSideMenus = () => {
+    console.log("click!");
     if (!sideScreen.hideMenu) {
       hideSideMenu(true);
     } else if (!sideScreen.hideFilter) {
@@ -40,6 +41,8 @@ const TelaPrincipal = () => {
     document.querySelector("#sidemenu").classList.toggle("hide");
     /* This is to close one if the other is going to be opened */
     if (toggle && !sideScreen.hideFilter) hideSideFilter(true);
+    /* When showing side-menu, blur and disable main screen */
+    document.querySelector(".tela-principal").classList.toggle("disable");
   };
 
   const hideSideFilter = (toggle) => {
@@ -51,6 +54,7 @@ const TelaPrincipal = () => {
     });
     document.querySelector("#sidefilter").classList.toggle("hide");
     if (toggle && !sideScreen.hideMenu) hideSideMenu(true);
+    document.querySelector(".tela-principal").classList.toggle("disable");
   };
 
   return (

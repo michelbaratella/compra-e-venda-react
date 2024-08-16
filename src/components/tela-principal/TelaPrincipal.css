@@ -2,6 +2,12 @@
 }
 
 .tela-principal {
+  transition: all 0.2s linear;
+}
+
+.disable {
+  overflow: hidden;
+  filter: blur(2px);
 }
 
 .side {
@@ -9,7 +15,7 @@
   top: 0;
   background-color: #4d4063;
   width: 60%;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-in;
   height: 100%;
 }
 
