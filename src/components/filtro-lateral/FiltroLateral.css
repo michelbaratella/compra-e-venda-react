@@ -1,3 +1,7 @@
+.side-filter {
+  height: 100%;
+}
+
 .side-filter__side-buttons {
   font-size: 16px;
   margin: 15px 15px 0px 15px;
@@ -19,12 +23,12 @@
 
 .side-filter__filter-container {
   margin: 0 25px 0 25px;
-  height: 91vh;
   overflow-x: hidden;
   scrollbar-color: #331953 #625c8c;
   scrollbar-width: thin;
 }
 
 .side-filter__filter-container__list {
-  margin-top: 15px;
+  padding-top: 20px;
+  padding-inline-start: 0;
 }

@@ -1,3 +1,20 @@
-.filter-container__list__item__checkbox {
-  margin: 0 10px 15px 0;
+.filter-container__list__item {
+  list-style-type: none;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  text-wrap: balance;
+  display: flex;
+}
+
+/* .filter-container__list__item__checkbox {
+}
+
+.filter-container__list__item__text {
+} */
+
+input[type="checkbox"] {
+  background-color: #b3b3b3;
+  accent-color: #b3b3b3;
+  margin: 3px 10px 3px 3px;
+  font-size: 12px;
 }

@@ -4,7 +4,7 @@ import { listOfItems } from "../../assets/testData";
 
 const FiltroLateral = (props) => {
   return (
-    <>
+    <span className="side-filter">
       <button className="side-filter__side-buttons" onClick={props.handleClose}>
         Voltar
         <i className="fa-solid fa-arrow-right side-filter__side-buttons__icons"></i>
@@ -14,7 +14,7 @@ const FiltroLateral = (props) => {
           <ListaDeFiltros listOfItems={listOfItems} />
         </ul>
       </div>
-    </>
+    </span>
   );
 };
 

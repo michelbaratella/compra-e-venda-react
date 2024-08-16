@@ -3,14 +3,17 @@ export const listOfItems = [
   {
     id: 28,
     Title: "Sweden",
+    checked: true,
   },
   {
     id: 56,
     Title: "USA",
+    checked: false,
   },
   {
     id: 89,
     Title: "England",
+    checked: false,
   },
 ];
 

@@ -1,19 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  /* box-sizing: border-box; */
-}
-
 body {
   font-family: "Inter", sans-serif;
-  background-color: #4d4063;
   display: flex;
   flex-direction: column;
   color: white;
   justify-content: space-between;
-  height: 100vh;
-  color: white;
-  opacity: 0.8;
+  background: radial-gradient(#afa2ff, #4d4063);
 }
 
 input[type="checkbox"] {
@@ -23,13 +14,13 @@ input[type="checkbox"] {
 
 button {
   all: unset;
-  opacity: 0.6;
+  opacity: 0.9;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 button:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 /* When viewport is over the defined min width apply these rules */

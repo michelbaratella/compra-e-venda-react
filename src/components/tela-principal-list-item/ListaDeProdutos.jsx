@@ -4,6 +4,12 @@ import myImage from "../../assets/shoes.jpg";
 const ListaDeProdutos = (props) => {
   const listItems = props.listOfProdutos;
 
+  const formCurrency = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+  });
+
   return listItems.map((item) => (
     <span key={item.id}>
       <div className="product__name--container">
@@ -20,7 +26,7 @@ const ListaDeProdutos = (props) => {
           id="productPrice"
           className="product__info--price"
         >
-          ${item.price}
+          {formCurrency.format(item.price)}
         </label>
         <button className="product__info--buy-btn">Comprar</button>
       </div>
