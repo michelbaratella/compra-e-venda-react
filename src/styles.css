@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #4d4063;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: space-between;
+  height: 100vh;
+  color: white;
+  opacity: 0.8;
+}
+
+input[type="checkbox"] {
+  background-color: #b3b3b3;
+  accent-color: #b3b3b3;
+}
+
+button {
+  all: unset;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* When viewport is over the defined min width apply these rules */
+@media (min-width: 600px) {
+  body {
+    width: 600px;
+    height: auto;
+    margin: auto;
+  }
+}

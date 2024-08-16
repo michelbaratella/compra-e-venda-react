@@ -1,0 +1,35 @@
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.side-menu__side-buttons {
+  font-size: 16px;
+  margin: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-left: 70%;
+  padding: 10px;
+  /* box-shadow: 0px 5px 5px -4px rgba(0, 0, 0, 0.2); */
+}
+
+.side-menu__side-buttons__icons {
+  cursor: pointer;
+  margin: 5px;
+  font-size: 24px;
+}
+
+.side-menu__new-product-btn {
+  width: 50%;
+  text-align: center;
+  align-self: center;
+  opacity: 1;
+  background-color: #331953;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1);
+}

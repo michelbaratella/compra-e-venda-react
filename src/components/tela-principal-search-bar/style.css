@@ -1,0 +1,22 @@
+.header__search-bar {
+  display: flex;
+  background-color: #331953;
+  margin: 0 10px 0 10px;
+  border-radius: 6px;
+  height: 35px;
+  padding: 2px;
+}
+
+.header__search-bar--input {
+  all: unset;
+  margin-left: 5px;
+  flex: 1;
+}
+
+.header__search-bar--btn {
+  font-size: 24px;
+  padding: 0 15px 0 15px;
+  /* label allignment */
+  display: flex;
+  align-items: center;
+}

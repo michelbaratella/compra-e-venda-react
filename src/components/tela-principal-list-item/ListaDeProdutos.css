@@ -1,0 +1,25 @@
+.product__name--container {
+  margin: 10px 0 10px 0;
+  width: 100%;
+}
+
+.product__image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.product__info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product__info--buy-btn {
+  opacity: 1;
+  background-color: #331953;
+  padding: 15px;
+  border-radius: 10px;
+}
