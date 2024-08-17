@@ -5,10 +5,14 @@ const formTemplate = { productName: "", productPrice: 0, productImage: "" };
 const NovoAnuncio = () => {
   const [form, setForm] = useState(formTemplate);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Handle the form data in state
-    console.log("Form submitted:", form);
+    await console.log("Form submitted:", form);
+    setInterval(
+      () => window.location.replace("http://localhost:5173/"),
+      [1000]
+    );
   };
 
   const handleInputChange = (event) => {
