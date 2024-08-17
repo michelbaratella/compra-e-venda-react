@@ -1,0 +1,55 @@
+input,
+textarea {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  height: 30px;
+  border-radius: 10px;
+  border-style: none;
+  text-indent: 2px;
+  margin-top: 10px;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+.form--buttons {
+  all: unset;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #331953;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+form--buttons:hover {
+  opacity: 0.8;
+}
+
+.form {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.backBtn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+}
+
+.backBtn__text {
+  margin: 5px;
+}
+
+.form__inputs {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}

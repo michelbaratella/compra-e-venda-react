@@ -7,10 +7,11 @@
 }
 
 /* .filter-container__list__item__checkbox {
-}
+} */
 
 .filter-container__list__item__text {
-} */
+  padding-top: 7px;
+}
 
 input[type="checkbox"] {
   background-color: #b3b3b3;
