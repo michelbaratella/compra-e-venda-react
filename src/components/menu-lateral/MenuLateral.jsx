@@ -1,4 +1,5 @@
 import "./MenuLateral.css";
+import { Link } from "react-router-dom";
 
 const MenuLateral = (props) => {
   return (
@@ -9,7 +10,9 @@ const MenuLateral = (props) => {
           {" "}
         </i>
       </button>
-      <button className="side-menu__new-product-btn">Novo Anúncio</button>
+      <Link to="novo-anuncio" className="side-menu__new-product-btn">
+        Novo Anúncio
+      </Link>
       <button className="side-menu__side-buttons">
         <span className="side-menu__side-buttons__text">Ajuda</span>
         <i className="fa-regular fa-circle-question side-menu__side-buttons__icons"></i>

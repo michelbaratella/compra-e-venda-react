@@ -24,6 +24,8 @@
 }
 
 .side-menu__new-product-btn {
+  all: unset;
+  color: white;
   width: 50%;
   text-align: center;
   align-self: center;
