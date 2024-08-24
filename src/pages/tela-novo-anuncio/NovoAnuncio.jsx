@@ -8,9 +8,11 @@ const formTemplate = {
   tags: [],
 };
 
+const defaultTag = { id: 0, name: "" };
+
 const NovoAnuncio = () => {
   const [form, setForm] = useState(formTemplate);
-  const [currTag, setCurrTag] = useState("");
+  const [currTag, setCurrTag] = useState(defaultTag);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -45,30 +47,39 @@ const NovoAnuncio = () => {
   };
 
   const handleAddTag = () => {
-    if (currTag.trim().length > 0) {
+    if (currTag.name.trim().length > 0) {
+      const newTag = { id: Date.now(), name: currTag.name.trim() };
+
       const updatedTags = form.tags;
-      const newTag = currTag.trim();
 
-      updatedTags.push(newTag);
-
-      updateTags(updatedTags);
-      setCurrTag("");
-    }
-  };
-
-  const handleRemoveTags = (list) => {
-    if (list.length > 0) {
-      const selectedTags = [];
-
-      for (let i = 0; i < list.length; i++) {
-        selectedTags.push(list[i].label);
+      if (updatedTags.find(({ name }) => name === newTag.name)) {
+        alert("Tag já cadastrada!");
+        // implementar componente de msg de erro
+      } else {
+        updatedTags.push(newTag);
       }
 
-      updateTags(form.tags.filter((tag) => !selectedTags.includes(tag)));
+      setUpdatedForm(updatedTags);
+      setCurrTag(defaultTag);
+      document.getElementById("currTag").focus();
     }
   };
 
-  const updateTags = (updatedTags) => {
+  const handleRemoveTags = (selectedOptions) => {
+    if (selectedOptions.length > 0) {
+      const selectedTags = [];
+
+      for (let i = 0; i < selectedOptions.length; i++) {
+        selectedTags.push(selectedOptions[i].label);
+      }
+
+      setUpdatedForm(
+        form.tags.filter((tag) => !selectedTags.includes(tag.name))
+      );
+    }
+  };
+
+  const setUpdatedForm = (updatedTags) => {
     setForm((prev) => ({
       ...prev,
       tags: updatedTags,
@@ -103,10 +114,13 @@ const NovoAnuncio = () => {
           <input
             id="currTag"
             type="text"
-            value={currTag}
             className="form__input--title form-tag__input"
+            value={currTag.name}
             onChange={() =>
-              setCurrTag(document.querySelector("#currTag").value)
+              setCurrTag({
+                id: 0,
+                name: document.querySelector("#currTag").value,
+              })
             }
           />
           <button
@@ -124,9 +138,9 @@ const NovoAnuncio = () => {
             multiple
             className="form-tag__input form-tag__input--select"
           >
-            {form.tags.map((tag, i) => (
-              <option id="tagItem" key={i}>
-                {tag}
+            {form.tags.map((tag) => (
+              <option id="tagItem" key={tag.id}>
+                {tag.name}
               </option>
             ))}
           </select>
