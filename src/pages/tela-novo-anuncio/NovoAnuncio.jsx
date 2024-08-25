@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./NovoAnuncio.css";
+import CampoDeFiltrosDeAnuncio from "../../components/tela-novo-anuncio-filtro-de-anuncio/CampoDeFiltroDeAnuncio";
+import CampoDeImagem from "../../components/tela-novo-anuncio-imagem/CampoDeImagem";
 
 const formTemplate = {
   productName: "",
@@ -8,11 +10,9 @@ const formTemplate = {
   tags: [],
 };
 
-const defaultTag = { id: 0, name: "" };
-
 const NovoAnuncio = () => {
   const [form, setForm] = useState(formTemplate);
-  const [currTag, setCurrTag] = useState(defaultTag);
+  const [currTag, setCurrTag] = useState({ id: 0, name: "" });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -46,39 +46,6 @@ const NovoAnuncio = () => {
     return "R$ " + result;
   };
 
-  const handleAddTag = () => {
-    if (currTag.name.trim().length > 0) {
-      const newTag = { id: Date.now(), name: currTag.name.trim() };
-
-      const updatedTags = form.tags;
-
-      if (updatedTags.find(({ name }) => name === newTag.name)) {
-        alert("Tag já cadastrada!");
-        // implementar componente de msg de erro
-      } else {
-        updatedTags.push(newTag);
-      }
-
-      setUpdatedForm(updatedTags);
-      setCurrTag(defaultTag);
-      document.getElementById("currTag").focus();
-    }
-  };
-
-  const handleRemoveTags = (selectedOptions) => {
-    if (selectedOptions.length > 0) {
-      const selectedTags = [];
-
-      for (let i = 0; i < selectedOptions.length; i++) {
-        selectedTags.push(selectedOptions[i].label);
-      }
-
-      setUpdatedForm(
-        form.tags.filter((tag) => !selectedTags.includes(tag.name))
-      );
-    }
-  };
-
   const setUpdatedForm = (updatedTags) => {
     setForm((prev) => ({
       ...prev,
@@ -105,58 +72,17 @@ const NovoAnuncio = () => {
           value={form.productName}
           onChange={handleInputChange}
           className="form__input--title"
+          required
         />
       </span>
 
-      <span className="form__inputs">
-        <label htmlFor="currTag">Tags para filtrar anúncio</label>
-        <span className="form-tag">
-          <input
-            id="currTag"
-            type="text"
-            className="form__input--title form-tag__input"
-            value={currTag.name}
-            onChange={() =>
-              setCurrTag({
-                id: 0,
-                name: document.querySelector("#currTag").value,
-              })
-            }
-          />
-          <button
-            type="button"
-            className="form__buttons form-tag--btn"
-            onClick={handleAddTag}
-          >
-            <i className="fa-solid fa-plus"></i>
-          </button>
-        </span>
-
-        <span className="form-tag">
-          <select
-            id="tagsList"
-            multiple
-            className="form-tag__input form-tag__input--select"
-          >
-            {form.tags.map((tag) => (
-              <option id="tagItem" key={tag.id}>
-                {tag.name}
-              </option>
-            ))}
-          </select>
-          <button
-            type="button"
-            className="form__buttons form-tag--btn"
-            onClick={() =>
-              handleRemoveTags(
-                document.getElementById("tagsList").selectedOptions
-              )
-            }
-          >
-            <i className="fa-solid fa-trash"></i>
-          </button>
-        </span>
-      </span>
+      <CampoDeFiltrosDeAnuncio
+        form={form}
+        setForm={setForm}
+        currTag={currTag}
+        setCurrTag={setCurrTag}
+        setUpdatedForm={setUpdatedForm}
+      />
 
       <span className="form__inputs">
         <label htmlFor="productPrice">Preço do anúncio</label>
@@ -168,17 +94,13 @@ const NovoAnuncio = () => {
         />
       </span>
 
-      <span className="form__inputs">
-        <label htmlFor="productImage">Imagens</label>
-        <input
-          id="productImage"
-          type="text"
-          value={form.productImage}
-          onChange={handleInputChange}
-        />
-      </span>
+      <CampoDeImagem
+        form={form}
+        setForm={setForm}
+        handleInputChange={handleInputChange}
+      />
 
-      <button type="submit" className="form__buttons">
+      <button type="submit" className="form__buttons form__buttons--bottom">
         Criar anúncio
       </button>
     </form>

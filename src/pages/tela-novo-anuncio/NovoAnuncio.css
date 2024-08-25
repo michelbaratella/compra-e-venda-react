@@ -77,3 +77,12 @@ form__buttons:hover {
   text-align: center;
   height: 25px;
 }
+
+.form__buttons--bottom {
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}

@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container__label {
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #331953;
+  padding: 15px;
+  margin: 10px 90px 10px 90px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.container__label--max{
+    font-size: small;
+}
+
+.container__input {
+  display: none;
+}
+
+.container__preview {
+  display: flex;
+  justify-content: center;
+}
+
+.container__preview__icon {
+  display: flex;
+  flex-direction: column;
+}
+
+.container__preview__img {
+  width: 50px;
+  height: 50px;
+  margin: 5px 5px 10px 10px;
+}
