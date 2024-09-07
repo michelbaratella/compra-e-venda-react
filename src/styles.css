@@ -31,3 +31,11 @@ button:hover {
     margin: auto;
   }
 }
+
+@media (max-width: 300px) {
+  body {
+    width: auto;
+    height: auto;
+    margin: auto;
+  }
+}
