@@ -61,7 +61,7 @@ const NovoAnuncio = () => {
       <button
         type="button"
         className="form__back-btn form__buttons"
-        onClick={() => Back2HomePage}
+        onClick={Back2HomePage}
       >
         <i className="fa-solid fa-arrow-left side-menu__side-buttons__icons"></i>
         <span className="form__back-btn__text">Voltar</span>
