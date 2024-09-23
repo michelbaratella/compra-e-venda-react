@@ -4,7 +4,7 @@ body {
   flex-direction: column;
   color: white;
   justify-content: space-between;
-  background: radial-gradient(#afa2ff, #4d4063);
+  background: radial-gradient(#afa2ff, #8a76ad);
 }
 
 input[type="checkbox"] {

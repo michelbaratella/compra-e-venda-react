@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./NovoAnuncio.css";
 import CampoDeFiltrosDeAnuncio from "../../components/tela-novo-anuncio-filtro-de-anuncio/CampoDeFiltroDeAnuncio";
 import CampoDeImagem from "../../components/tela-novo-anuncio-imagem/CampoDeImagem";
+import { useNavigate } from "react-router-dom";
 
 const formTemplate = {
   productName: "",
@@ -13,15 +14,13 @@ const formTemplate = {
 const NovoAnuncio = () => {
   const [form, setForm] = useState(formTemplate);
   const [currTag, setCurrTag] = useState({ id: 0, name: "" });
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Handle the form data in state
     await console.log(form);
-    /* setInterval(
-      () => window.location.replace("http://localhost:5173/"),
-      [1000]
-    ); */
+    Back2HomePage();
   };
 
   const handleInputChange = (event) => {
@@ -53,12 +52,16 @@ const NovoAnuncio = () => {
     }));
   };
 
+  const Back2HomePage = () => {
+    navigate("/");
+  };
+
   return (
     <form onSubmit={handleSubmit} className="form">
       <button
         type="button"
         className="form__back-btn form__buttons"
-        onClick={() => window.location.replace("http://localhost:5173/")}
+        onClick={() => Back2HomePage}
       >
         <i className="fa-solid fa-arrow-left side-menu__side-buttons__icons"></i>
         <span className="form__back-btn__text">Voltar</span>
